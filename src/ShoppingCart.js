@@ -14,6 +14,10 @@ class ShoppingCart {
   getItems() {
     return this.items
   }
+
+  clear() {
+    this.items = []
+  }
 }
 
 module.exports = ShoppingCart
