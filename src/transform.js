@@ -11,12 +11,12 @@ function groupAdultsByAgeRange(adults) {
 
   // Check if an adult is in a certain age range (from ranges.keys)
   function isInAgeRange(adult, range) {
-    return adult.age >= ranges[range].from && adult.age < ranges[range].to
+    return adult.age >= ranges[range].from && adult.age <= ranges[range].to
   }
 
   const result = {}
   Object.keys(ranges).map(range => {
-    const filtered = adults.filter(adult => isInAgeRange(adult, range) && adult.age > 18)
+    const filtered = adults.filter(adult => isInAgeRange(adult, range) && adult.age >= 18)
     if (filtered.length > 0) {
       result[range] = filtered
     }
