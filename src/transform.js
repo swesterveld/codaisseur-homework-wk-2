@@ -1,6 +1,4 @@
-module.exports = { groupAdultsByAgeRange }
-
-function groupAdultsByAgeRange(adults) {
+module.exports.groupAdultsByAgeRange = function groupAdultsByAgeRange(adults) {
   const ranges = {
     '20 and younger': { from:0, to: 20 },
     '21-30': { from: 21, to: 30 },
@@ -17,9 +15,7 @@ function groupAdultsByAgeRange(adults) {
   const result = {}
   Object.keys(ranges).map(range => {
     const filtered = adults.filter(adult => isInAgeRange(adult, range) && adult.age >= 18)
-    if (filtered.length > 0) {
-      result[range] = filtered
-    }
+    if (filtered.length) result[range] = filtered
   })
   return result
 }
